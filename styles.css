@@ -15,14 +15,5 @@ div {
 @media screen and (max-width: 700px) {
   body {
     background-color: orange; } }
-/*.main-block { 
-background-color: #cf0; 
-	border: 5px solid black;
-position: fixed;
-
-	top: 80%;
-	left: 0;
-	width: 100%;
-}*/
 
 /*# sourceMappingURL=styles.css.map */
