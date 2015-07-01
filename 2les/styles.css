@@ -1,0 +1,33 @@
+body {
+  background-color: lime;
+  font-family: 'Open Sans Condensed', sans-serif; }
+
+li {
+  font-style: italic;
+  font-weight: bold;
+  display: inline; }
+
+div {
+  background-color: #cc4;
+  text-align: center;
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
+  border-radius: 20px 20px 70px 70px;
+  box-shadow: 20px 20px 10px 10px rgba(90, 60, 90, 0.5);
+  text-shadow: 20px 10px 10px #412BFF; }
+
+@media screen and (max-width: 700px) {
+  body {
+    background-color: orange; } }
+/*.main-block { 
+background-color: #cf0; 
+	border: 5px solid black;
+position: fixed;
+
+	top: 80%;
+	left: 0;
+	width: 100%;
+}*/
+
+/*# sourceMappingURL=styles.css.map */
