@@ -5,7 +5,7 @@ require('base/db.php');
 
 // Робимо запит до БД, вибираємо статтю по параметру ГЕТ.
 try {
-  $stmt = $conn->prepare('SELECT id, title, full_desc, timestamp FROM content WHERE id = :id');
+  $stmt = $conn->prepare('SELECT id, title, short_desc, full_desc, timestamp FROM content WHERE id = :id'); // добавив short_desc, щоб вписати його в поле редагування в едіт пхп
   // Додаємо плейсхолдер.
   $stmt->bindParam(':id', $_GET['id'], PDO::PARAM_INT);	
   $stmt->execute();
