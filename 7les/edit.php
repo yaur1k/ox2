@@ -1,6 +1,6 @@
 <?php
 ob_start(); //без цього пише помилку Cannot modify header information
-//cторінка на розробці.
+
 require('base/db.php');
 require('article.php');
 
@@ -11,9 +11,10 @@ if($editor):
 if (isset($_POST['submitedit'])) {
 
   try {
-    $stmt = $conn->prepare('UPDATE content SET (title = :title, short_desc = :short_desc, full_desc = :full_desc, timestamp = :timestamp) WHERE id = :id;');
-//('UPDATE content SET (:title, :short_desc, :full_desc, :timestamp) WHERE (id = :id);');
+    $stmt = $conn->prepare('UPDATE content SET title = :title, short_desc = :short_desc, full_desc = :full_desc, timestamp = :timestamp WHERE id = :id;');
+
     // Обрізаємо усі теги у загловку.
+    $stmt->bindParam(':id', $_GET['id']); 
     $stmt->bindParam(':title', strip_tags($_POST['title']));
 
     // Екрануємо теги у полях короткого та повного опису.
@@ -26,7 +27,7 @@ if (isset($_POST['submitedit'])) {
     // Виконуємо запит, результат запиту знаходиться у змінні $status.
     // Якщо $status рівне TRUE, тоді запит відбувся успішно.
     $status = $stmt->execute();
-
+    header('Location: /');
   	   }
    catch(PDOException $e) {
     // Виводимо на екран помилку.
@@ -35,22 +36,14 @@ if (isset($_POST['submitedit'])) {
     require('base/footer.php');
     // Зупиняємо роботу скрипта.
     exit;
-  						   }
-
-  // При успішному запиту перенаправляємо користувача на сторінку перегляду статті.
-  if ($status) {
-    // За допомогою методу lastInsertId() ми маємо змогу отрмати ІД статті, що була вставлена.
-    header("Location: article.php?id={$conn->lastInsertId()}");
-    exit;
-  			   }
-
-								}
+  						            }
+								                }
 
     endif; 
 ?>
 
 
-   <form action="<?php print $_SERVER["PHP_SELF"]; ?>" method="POST">
+   <form action="" method="POST">
 
   <div class="field-item">
     <label for="title">Заголовок</label>
