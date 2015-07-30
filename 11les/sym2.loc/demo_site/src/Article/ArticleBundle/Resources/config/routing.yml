@@ -1,0 +1,7 @@
+article_article_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ArticleArticleBundle:Default:index }
+
+article_article_newpage:
+    path:     /article/{myVariable}
+    defaults: { _controller: ArticleArticleBundle:Article:article }

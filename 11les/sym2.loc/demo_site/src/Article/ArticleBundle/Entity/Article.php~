@@ -1,0 +1,30 @@
+<?php
+
+namespace Article\ArticleBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity()
+ * @ORM\Table(name="article")
+ */
+class Article
+{
+ 
+	/**
+	 * @ORM\Column(type="integer")
+	 * @ORM\Id
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+    protected $id;
+	
+	/**
+	 * @ORM\Column(type="text")
+	 */
+    protected $name;
+	
+	/**
+	 * @ORM\Column(type="text")
+	 */
+    protected $secondName;
+}
